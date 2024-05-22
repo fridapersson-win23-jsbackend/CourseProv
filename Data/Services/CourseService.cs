@@ -63,8 +63,8 @@ public class CourseService(IDbContextFactory<DataContext> contextFactory) : ICou
         //try
         //{
             await using var context = _contextFactory.CreateDbContext();
-            var courseExists = await context.Courses.AnyAsync(x => x.Id == id);
-            if (courseExists)
+            var courseExists = await context.Courses.FirstOrDefaultAsync(x => x.Id == id);
+            if (courseExists != null)
             {
                 var courseEntity = await context.Courses.FirstOrDefaultAsync(x => x.Id == id);
                 if (courseEntity != null)
