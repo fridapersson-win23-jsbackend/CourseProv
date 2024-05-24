@@ -15,7 +15,7 @@ public class Course
     public decimal? HoursToComplete { get; set; }
     public bool IsDigital { get; set; }
     public bool IsBestSeller { get; set; }
-
+    public bool IsSaved { get; set; }
 
     public virtual Prices? Prices { get; set; }
     public virtual List<Authors>? Authors { get; set; }
